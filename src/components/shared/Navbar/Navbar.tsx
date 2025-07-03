@@ -1,4 +1,4 @@
-import { CarTaxiFront, Heart, Search } from 'lucide-react'
+import { Heart, Search } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
