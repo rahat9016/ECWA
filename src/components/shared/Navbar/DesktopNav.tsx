@@ -1,0 +1,65 @@
+'use client';
+
+import { Heart, Search, User } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { PiShoppingCart } from 'react-icons/pi';
+import { LuUserRoundPlus } from "react-icons/lu";
+
+const DesktopNav = () => {
+  const [isLoggedIn, setIsloggedin] = useState(false);
+
+  return (
+    <div className="bg-primary text-white h-24 flex items-center justify-center">
+      <div className="lg:container px-4 w-full flex items-center justify-between gap-16">
+        <Image src={'/logo.png'} alt="logo" height={120} width={160} />
+        <div className="w-full bg-white flex items-center pl-4 rounded-lg">
+          <input placeholder="Search" className="h-12 text-gray-800 pr-4 w-full outline-none" />
+          <div className="bg-gray-100 font-medium hover:bg-gray-200 duration-200 p-2 rounded-r-lg px-5 lg:px-10 cursor-pointer">
+            <Search size={28} color="gray" />
+          </div>
+        </div>
+        <div className="flex items-center gap-5">
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <div className="absolute -right-1.5 -top-1 h-4 w-4 text-xs font-semibold flex justify-center items-center rounded-full bg-red-500">
+                3
+              </div>
+              <Heart size={28} />
+            </div>
+            <p className="hidden lg:block whitespace-nowrap font-medium">Wish List</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <div className="absolute -right-1.5 top-.5 h-4 w-4 text-xs font-semibold flex justify-center items-center rounded-full bg-red-500">
+                3
+              </div>
+              <PiShoppingCart size={30} />
+            </div>
+            <p className="hidden lg:block whitespace-nowrap font-medium">Cart</p>
+          </div>
+          <div onClick={() => setIsloggedin(!isLoggedIn)}>
+            {isLoggedIn ? (
+              <div className="w-10 h-10 rounded-full overflow-hidden object-cover">
+                <Image src="/user.webp" alt="profile" height={40} width={40} />
+              </div>
+            ) : (
+              <Link href="/" className="flex items-center gap-2">
+                <div className="relative">
+                  <LuUserRoundPlus size={28} />
+                </div>
+                <div>
+                  <p className="hidden lg:block whitespace-nowrap font-medium">Account</p>
+                  <p className="whitespace-nowrap text-xs">Register or login</p>
+                </div>
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DesktopNav;
