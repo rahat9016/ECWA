@@ -1,5 +1,7 @@
-import { NavLinks } from '@/docs';
-import { Plus } from 'lucide-react';
+import { useState } from 'react';
+import clsx from 'clsx';
+import { MdOutlinePhoneAndroid } from 'react-icons/md';
+import { IoIosLaptop, IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 
 interface SidebarProps {
@@ -8,162 +10,179 @@ interface SidebarProps {
   activeLabel: string;
 }
 
-const Sidebar = (props: SidebarProps) => {
+const categories = [
+  {
+    name: 'phone',
+    icon: MdOutlinePhoneAndroid,
+    types: [
+      { type: 'Feature Phone', brands: ['Samsung', 'Nokia', 'Symphony', 'Qin'] },
+      { type: 'Smart Phone', brands: ['Samsung', 'Apple', 'Vivo', 'Xiaomi'] },
+    ],
+  },
+  {
+    name: 'laptop',
+    icon: IoIosLaptop,
+    types: [
+      { type: 'Gaming Laptop', brands: ['Asus', 'MSI', 'Alienware'] },
+      { type: 'Ultrabook', brands: ['Apple', 'Dell', 'HP'] },
+    ],
+  },
+];
+
+const Sidebar = ({ isOpen, setOpen }: SidebarProps) => {
+  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({});
+  const [openSubCategories, setOpenSubCategories] = useState<Record<string, boolean>>({});
+  const [selected, setSelected] = useState<{
+    category: string;
+    subCategory: string;
+    brand: string;
+  }>({
+    category: '',
+    subCategory: '',
+    brand: '',
+  });
+
+  const toggle = (
+    stateSetter: React.Dispatch<React.SetStateAction<Record<string, boolean>>>,
+    key: string,
+  ) => {
+    stateSetter((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
   return (
     <div className="relative">
+      {/* Backdrop */}
       <div
-        className={`fixed top-20 inset-0 z-50 duration-200 ${props.isOpen ? 'backdrop-blur-xs' : 'bg-transparent pointer-events-none'}`}
-        onClick={() => props.setOpen(false)}
+        className={clsx(
+          'lg:hidden fixed top-20 inset-0 z-40 transition duration-200',
+          isOpen ? 'backdrop-blur-sm bg-black/20' : 'pointer-events-none bg-transparent',
+        )}
+        onClick={() => setOpen(false)}
       />
+
+      {/* Sidebar */}
       <div
-        className={`fixed z-50 ${props.isOpen ? 'translate-x-0' : '-translate-x-full'} duration-500 bg-white top-20 left-0 bottom-0 p-4 w-[70%]`}
+        className={clsx(
+          'lg:hidden fixed z-50 bg-white top-20 left-0 bottom-0 p-4 w-[70%] shadow-lg overflow-y-scroll',
+          'transition-transform duration-500',
+          isOpen ? 'translate-x-0' : '-translate-x-full',
+        )}
       >
-        <div className="flex flex-col gap-3">
-          {NavLinks.map((category, index) => (
-            <div
-              key={index}
-              className={`py-2 cursor-pointer text-white hover:text-textBlue hover:underline ${category.label === props.activeLabel ? 'bg-primary/20' : ''} duration-200`}
-            >
-              <div className="flex items-center justify-between font-semibold text-black px-3 w-full">
-                {category.label}
-                <Plus />
+        <div className="flex flex-col">
+          {categories.map((category) => {
+            const isCategoryOpen = openCategories[category.name];
+            const isCategoryActive = selected.category === category.name;
+
+            return (
+              <div key={category.name} className="cursor-pointer">
+                <div className="flex flex-col text-gray-800 font-semibold">
+                  {/* Category Header */}
+                  <div
+                    className={clsx(
+                      'py-2 flex items-center justify-between w-full transition-colors',
+                      isCategoryActive ? 'text-blue-600' : 'hover:text-blue-600',
+                    )}
+                    onClick={() => {
+                      toggle(setOpenCategories, category.name);
+                      setSelected({ category: category.name, subCategory: '', brand: '' });
+                    }}
+                  >
+                    <div className="flex gap-2">
+                      <category.icon size={24} />
+                      {capitalize(category.name)}
+                    </div>
+                    {isCategoryOpen ? <IoIosArrowUp size={24} /> : <IoIosArrowDown size={24} />}
+                  </div>
+
+                  {/* Subcategories */}
+                  <div
+                    className={clsx(
+                      'overflow-hidden transition-all duration-300 ease-in-out border-l-2 border-bdrGray ml-2',
+                      isCategoryOpen ? 'max-h-[500px] py-2' : 'max-h-0',
+                    )}
+                  >
+                    {category.types.map((subCat) => {
+                      const isSubCatOpen = openSubCategories[subCat.type];
+                      const isSubCategoryActive =
+                        selected.category === category.name && selected.subCategory === subCat.type;
+
+                      return (
+                        <div key={subCat.type} className="ml-3">
+                          {/* Subcategory Header */}
+                          <div
+                            className={clsx(
+                              'pl-3 flex items-center justify-between w-full transition-colors',
+                              isSubCategoryActive
+                                ? 'text-black'
+                                : 'text-black hover:text-blue-500',
+                            )}
+                            onClick={() => {
+                              toggle(setOpenSubCategories, subCat.type);
+                              setSelected({
+                                category: category.name,
+                                subCategory: subCat.type,
+                                brand: '',
+                              });
+                            }}
+                          >
+                            {subCat.type}
+                            {isSubCatOpen ? <IoIosArrowUp size={20} /> : <IoIosArrowDown size={20} />}
+                          </div>
+
+                          {/* Brands */}
+                          <div
+                            className={clsx(
+                              'overflow-hidden transition-all duration-300 ease-in-out border-l-2 border-bdrGray ml-3',
+                              isSubCatOpen ? 'max-h-[300px] py-1' : 'max-h-0',
+                            )}
+                          >
+                            {subCat.brands.map((brand) => {
+                              const isBrandActive =
+                                selected.category === category.name &&
+                                selected.subCategory === subCat.type &&
+                                selected.brand === brand;
+
+                              return (
+                                <div
+                                  key={brand}
+                                  onClick={() => {
+                                    setSelected({
+                                      category: category.name,
+                                      subCategory: subCat.type,
+                                      brand,
+                                    });
+                                    setOpen(false);
+                                  }}
+                                  className={clsx(
+                                    'pl-3 ml-3 rounded-lg py-1 transition-colors cursor-pointer',
+                                    isBrandActive
+                                      ? 'text-black bg-textGray'
+                                      : 'text-cardGray hover:text-blue-400',
+                                  )}
+                                >
+                                  {brand}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
   );
 };
 
+// Helper to capitalize the first letter
+const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+
 export default Sidebar;
-
-
-
-// import React, { useEffect, useState } from 'react';
-// import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-// import { Plus, Minus } from 'lucide-react';
-
-// export interface Category {
-//   id: string;
-//   label: string;
-//   subCategories: {
-//     label: string;
-//     subSubCategories: string[];
-//   }[];
-// }
-
-// export const Categories: Category[] = [
-//   {
-//     id: 'electronics',
-//     label: 'Electronics',
-//     subCategories: [
-//       {
-//         label: 'Mobiles',
-//         subSubCategories: ['Smartphones', 'Feature Phones', 'Accessories']
-//       },
-//       {
-//         label: 'Laptops',
-//         subSubCategories: ['Gaming Laptops', 'Ultrabooks', 'Accessories']
-//       }
-//     ]
-//   },
-//   {
-//     id: 'fashion',
-//     label: 'Fashion',
-//     subCategories: [
-//       {
-//         label: 'Men',
-//         subSubCategories: ['Shirts', 'Jeans', 'Shoes']
-//       },
-//       {
-//         label: 'Women',
-//         subSubCategories: ['Dresses', 'Tops', 'Footwear']
-//       }
-//     ]
-//   },
-//   {
-//     id: 'home',
-//     label: 'Home & Living',
-//     subCategories: [
-//       {
-//         label: 'Furniture',
-//         subSubCategories: ['Sofas', 'Beds', 'Tables']
-//       },
-//       {
-//         label: 'Decor',
-//         subSubCategories: ['Wall Art', 'Lamps', 'Curtains']
-//       }
-//     ]
-//   }
-// ];
-
-// interface SidebarProps {
-//   isOpen: boolean;
-//   setOpen: (open: boolean) => void;
-//   activeLabel: string;
-// }
-
-// const Sidebar = ({ isOpen, setOpen, activeLabel }: SidebarProps) => {
-//   const [openCategory, setOpenCategory] = useState<string | null>(null);
-
-//   useEffect(() => {
-//     if (isOpen) {
-//       const parent = Categories.find(cat =>
-//         cat.subCategories.some(sub =>
-//           sub.subSubCategories.includes(activeLabel) || sub.label === activeLabel
-//         )
-//       );
-//       setOpenCategory(parent?.id || null);
-//     } else {
-//       setOpenCategory(null);
-//     }
-//   }, [isOpen, activeLabel]);
-
-//   return (
-//     <div className="relative">
-//       <div
-//         className={`fixed top-20 inset-0 z-50 duration-200 ${isOpen ? 'backdrop-blur-xs' : 'bg-transparent pointer-events-none'}`}
-//         onClick={() => setOpen(false)}
-//       />
-//       <div
-//         className={`fixed z-50 ${isOpen ? 'translate-x-0' : '-translate-x-full'} duration-500 bg-white top-20 left-0 bottom-0 p-4 w-[70%] overflow-y-auto`}
-//       >
-//         <Accordion type="single" collapsible value={openCategory || undefined}>
-//           {Categories.map(category => {
-//             const isActiveCategory = category.id === openCategory;
-//             const activeSub = category.subCategories.find(sub =>
-//               sub.subSubCategories.includes(activeLabel) || sub.label === activeLabel
-//             );
-
-//             return (
-//               <AccordionItem key={category.id} value={category.id} className={isActiveCategory ? 'bg-primary/10 rounded-md' : ''}>
-//                 <AccordionTrigger
-//                   onClick={() => setOpenCategory(category.id === openCategory ? '' : category.id)}
-//                   className="flex justify-between items-center px-3 py-2 font-semibold text-black hover:text-textBlue"
-//                 >
-//                   {category.label}
-//                   {isActiveCategory ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-//                 </AccordionTrigger>
-//                 <AccordionContent>
-//                   {category.subCategories.map((sub, i) => (
-//                     <div key={i} className="pl-4">
-//                       <p className={`font-medium ${activeLabel === sub.label ? 'text-primary' : ''}`}>{sub.label}</p>
-//                       <ul className="pl-4 list-disc text-sm">
-//                         {sub.subSubCategories.map((item, idx) => (
-//                           <li key={idx} className={`${activeLabel === item ? 'text-primary' : ''}`}>{item}</li>
-//                         ))}
-//                       </ul>
-//                     </div>
-//                   ))}
-//                 </AccordionContent>
-//               </AccordionItem>
-//             );
-//           })}
-//         </Accordion>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Sidebar;

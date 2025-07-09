@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div className='h-[3000px]'>Home</div>
+    <div className='h-[9000px]'>Home ok</div>
   )
 }
 

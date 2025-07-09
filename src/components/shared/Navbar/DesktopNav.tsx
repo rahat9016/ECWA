@@ -1,6 +1,6 @@
 'use client';
 
-import { Heart, Search, User } from 'lucide-react';
+import { Heart, Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -11,7 +11,7 @@ const DesktopNav = () => {
   const [isLoggedIn, setIsloggedin] = useState(false);
 
   return (
-    <div className="bg-primary text-white h-24 flex items-center justify-center">
+    <div className="hidden fixed right-0 left-0 lg:flex bg-primary text-white h-24  items-center justify-center">
       <div className="lg:container px-4 w-full flex items-center justify-between gap-16">
         <Image src={'/logo.png'} alt="logo" height={120} width={160} />
         <div className="w-full bg-white flex items-center pl-4 rounded-lg">
@@ -20,10 +20,10 @@ const DesktopNav = () => {
             <Search size={28} color="gray" />
           </div>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 text-black">
           <div className="flex items-center gap-2">
             <div className="relative">
-              <div className="absolute -right-1.5 -top-1 h-4 w-4 text-xs font-semibold flex justify-center items-center rounded-full bg-red-500">
+              <div className="absolute text-white -right-1.5 -top-1 h-4 w-4 text-xs font-semibold flex justify-center items-center rounded-full bg-red-500">
                 3
               </div>
               <Heart size={28} />
@@ -32,7 +32,7 @@ const DesktopNav = () => {
           </div>
           <div className="flex items-center gap-2">
             <div className="relative">
-              <div className="absolute -right-1.5 top-.5 h-4 w-4 text-xs font-semibold flex justify-center items-center rounded-full bg-red-500">
+              <div className="absolute text-white -right-1.5 top-.5 h-4 w-4 text-xs font-semibold flex justify-center items-center rounded-full bg-red-500">
                 3
               </div>
               <PiShoppingCart size={30} />

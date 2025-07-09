@@ -1,9 +1,9 @@
 export const NavLinks = [
-  { label: 'HOME', href: '/' },
-  { label: 'OUR LEGACY', href: '/' },
-  { label: 'ABOUT', href: '/about' },
-  { label: 'PRODUCTIONS', href: '/' },
-  { label: 'SISTER CONCERNS', href: '/' },
-  { label: 'DOCUMENTS', href: '/' },
-  { label: 'CONTACTS', href: '/' },
+  { label: 'Phone', href: '/' },
+  { label: 'Mens Cloting', href: '/' },
+  { label: 'Womens Clothing', href: '/' },
+  { label: 'Kids Cloting', href: '/' },
+  { label: 'Electronics', href: '/' },
+  { label: 'Cosmetics', href: '/' },
+  { label: 'Perfumes', href: '/' },
 ];
