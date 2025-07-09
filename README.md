@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 SaaS eCommerce Platform
 
-## Getting Started
+A scalable multi-tenant eCommerce SaaS application. This platform enables businesses to create and manage their own online stores within a shared infrastructure.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ✅ Multi-Tenant Support
+- Store-level data isolation (row-level or schema-based).
+- Each vendor gets their own dashboard and storefront.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### ✅ Product Management
+- CRUD for products, categories, brands, tags.
+- Support for product variants (size, color).
+- Image upload via Cloudinary or local storage.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ✅ Order & Checkout
+- Shopping cart with persistent session.
+- Order placement, history, and tracking.
+- Coupon, discount, and tax support.
 
-## Learn More
+### ✅ Payment Integration
+- Integrated with Stripe/PayPal.
+- Secure transaction handling.
 
-To learn more about Next.js, take a look at the following resources:
+### ✅ User Management
+- Vendor and customer registration/login.
+- Role-based access: Super Admin, Vendor, Customer.
+- JWT Authentication via DRF Simple JWT.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ✅ Admin Panel
+- Django admin extended for superuser control.
+- Vendor-specific dashboards for store performance.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ✅ Analytics & Reports
+- Sales statistics and order analytics per store.
+- Exportable reports (CSV, PDF support optional).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
