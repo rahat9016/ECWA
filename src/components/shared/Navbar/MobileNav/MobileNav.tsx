@@ -25,7 +25,7 @@ const MobileNav = () => {
   return (
     <div>
       <div className="lg:hidden fixed right-0 left-0 bg-primary text-white h-20 flex items-center justify-center">
-        <div className="lg:container px-4 w-full flex items-center justify-between gap-20">
+        <div className="lg:container px-4 w-full flex items-center justify-between">
           <div className="text-black">
             <Hamburger size={28} toggled={isOpen} toggle={setOpen} />
           </div>
