@@ -14,10 +14,10 @@ const DesktopNav = () => {
     <div className="hidden fixed right-0 left-0 lg:flex bg-primary text-white h-24  items-center justify-center">
       <div className="lg:container px-4 w-full flex items-center justify-between gap-16">
         <Image src={'/logo.png'} alt="logo" height={120} width={160} />
-        <div className="w-full bg-white flex items-center pl-4 rounded-lg">
+        <div className="group w-full bg-bdrGray flex items-center pl-4 rounded-lg">
           <input placeholder="Search" className="h-12 text-gray-800 pr-4 w-full outline-none" />
-          <div className="bg-gray-100 font-medium hover:bg-gray-200 duration-200 p-2 rounded-r-lg px-5 lg:px-10 cursor-pointer">
-            <Search size={28} color="gray" />
+          <div className="bg-bgWhite font-medium duration-200 p-2 mr-0.5 rounded-r-lg px-5 lg:px-10 cursor-pointer">
+            <Search size={28} color="gray" className='group-hover:scale-110 group-active:scale-95 duration-200' />
           </div>
         </div>
         <div className="flex items-center gap-5 text-black">
