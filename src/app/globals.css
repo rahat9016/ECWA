@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #f7f7f7;
+  --color-base: #f7f7f7;
   --color-textGray: #e6e6e6;
   --color-green: #02bf6c;
   --color-hGreen: #029A58;
@@ -21,7 +21,7 @@
   --font-family: 'Poppins', 'sans-serif';
 }
 
-/* @theme inline {
+@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -57,7 +57,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-} */
+}
 
 body {
   font-family: var(--font-poppins);
@@ -78,7 +78,7 @@ h6 {
   margin: 0 auto;
 }
 
-/* :root {
+:root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.13 0.028 261.692);
@@ -154,4 +154,4 @@ h6 {
   body {
     @apply bg-background text-foreground;
   }
-} */
+}

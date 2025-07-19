@@ -44,7 +44,7 @@ const BottomNav = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="lg:hidden z-40 fixed text-white bg-primary bottom-0 w-full flex items-center justify-between px-8 py-4 gap-5">
+      <div className="lg:hidden z-40 fixed text-white bg-base bottom-0 w-full flex items-center justify-between px-8 py-4 gap-5">
         {navItems.map(({ label, icon, badge, badgePosition }) => (
           <div
             key={label}
