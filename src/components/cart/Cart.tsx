@@ -128,7 +128,7 @@ export default function Cart() {
             <div className="mb-8">
               <ShoppingBag className="w-24 h-24 mx-auto text-muted-foreground mb-4" />
               <h1 className="text-3xl font-bold mb-2">Your cart is empty</h1>
-              <p className="text-muted-foreground mb-6">Looks like you haven't added any items to your cart yet.</p>
+              <p className="text-muted-foreground mb-6">Looks like you haven&apos;t added any items to your cart yet.</p>
               <Link href="/">
                 <Button size="lg">
                   <ArrowLeft className="w-4 h-4 mr-2" />
