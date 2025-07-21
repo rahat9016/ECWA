@@ -7,9 +7,10 @@ import { Turn as Hamburger } from 'hamburger-react';
 
 import Sidebar from './Sidebar';
 import BottomNav from './BottomNav';
-import { NavLinks } from '@/docs';
+
 import { PiShoppingCart } from 'react-icons/pi';
 import { HiUser } from 'react-icons/hi2';
+import { NavLinks } from '@/docs/navLinks';
 
 const MobileNav = () => {
   const [isOpen, setOpen] = useState(false);

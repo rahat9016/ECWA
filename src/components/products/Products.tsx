@@ -25,7 +25,7 @@ import {
 } from '@/components/ui/sheet';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { PRODUCTS } from '@/docs';
+import { PRODUCTS } from '@/docs/products';
 
 const CATEGORIES = ['Electronics', 'Clothing', 'Accessories', 'Home & Kitchen'];
 const BRANDS = [
