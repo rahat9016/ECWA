@@ -1,3 +1,5 @@
+
+"use client"
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -9,20 +11,30 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 
-const Carousel = ({ images }: { images: string[] }) => {
+const Carousel = ({
+  images,
+  height,
+  delay,
+  slideDirection,
+}: {
+  images: string[];
+  height: string;
+  delay?: number;
+  slideDirection?: 'right' | 'left';
+}) => {
   return (
     <div>
       <Swiper
-        spaceBetween={30}
         autoplay={{
-          delay: 5000,
+          delay: delay || 3000,
           disableOnInteraction: false,
+          reverseDirection: slideDirection === 'left',
         }}
         loop={true}
-        pagination={{clickable:true}}
-        navigation={true}
+        // pagination={{clickable:true}}
+        // navigation={true}
         modules={[Pagination, Navigation, Autoplay]}
-        className="w-full h-full"
+        className=""
       >
         {images.map((img, index) => (
           <SwiperSlide key={index}>
@@ -31,7 +43,7 @@ const Carousel = ({ images }: { images: string[] }) => {
               width={1920}
               src={img}
               alt="hero images"
-              className="w-full h-96 object-cover"
+              className={`w-full ${height} object-fill`}
             />
           </SwiperSlide>
         ))}

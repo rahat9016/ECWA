@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         <Navbar />
-        <div className="py-20 lg:py-24">{children}</div>
+        <div className="pt-20 lg:pt-24 ">{children}</div>
         <Footer />
       </body>
     </html>
