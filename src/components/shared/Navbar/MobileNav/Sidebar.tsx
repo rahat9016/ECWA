@@ -1,35 +1,23 @@
+"use client"
 import { useState } from 'react';
 import clsx from 'clsx';
-import { MdOutlinePhoneAndroid } from 'react-icons/md';
-import { IoIosLaptop, IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { CATEGORIES } from '@/docs/categories';
 
 interface SidebarProps {
-  isOpen: boolean;
-  setOpen: (open: boolean) => void;
-  activeLabel: string;
+  isOpen?: boolean;
+  setOpen?: (open: boolean) => void;
+  activeLabel?: string;
+  mobile?: boolean;
+  className?: string;
 }
 
-const categories = [
-  {
-    name: 'phone',
-    icon: MdOutlinePhoneAndroid,
-    types: [
-      { type: 'Feature Phone', brands: ['Samsung', 'Nokia', 'Symphony', 'Qin'] },
-      { type: 'Smart Phone', brands: ['Samsung', 'Apple', 'Vivo', 'Xiaomi'] },
-    ],
-  },
-  {
-    name: 'laptop',
-    icon: IoIosLaptop,
-    types: [
-      { type: 'Gaming Laptop', brands: ['Asus', 'MSI', 'Alienware'] },
-      { type: 'Ultrabook', brands: ['Apple', 'Dell', 'HP'] },
-    ],
-  },
-];
-
-const Sidebar = ({ isOpen, setOpen }: SidebarProps) => {
+const Sidebar = ({ 
+  isOpen = true, 
+  setOpen = () => {}, 
+  mobile = false,
+  className = '' 
+}: SidebarProps) => {
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({});
   const [openSubCategories, setOpenSubCategories] = useState<Record<string, boolean>>({});
   const [selected, setSelected] = useState<{
@@ -53,26 +41,29 @@ const Sidebar = ({ isOpen, setOpen }: SidebarProps) => {
   };
 
   return (
-    <div className="relative">
-      {/* Backdrop */}
-      <div
-        className={clsx(
-          'lg:hidden fixed top-20 inset-0 z-40 transition duration-200',
-          isOpen ? 'backdrop-blur-sm bg-black/20' : 'pointer-events-none bg-transparent',
-        )}
-        onClick={() => setOpen(false)}
-      />
+    <div className={clsx("relative", className)}>
+      {/* Mobile Backdrop */}
+      {mobile && (
+        <div
+          className={clsx(
+            'lg:hidden fixed top-20 inset-0 z-40 transition duration-200',
+            isOpen ? 'backdrop-blur-sm bg-black/20' : 'pointer-events-none bg-transparent',
+          )}
+          onClick={() => setOpen(false)}
+        />
+      )}
 
-      {/* Sidebar */}
+      {/* Sidebar Content */}
       <div
         className={clsx(
-          'lg:hidden fixed z-50 bg-white top-20 left-0 bottom-0 p-4 w-[70%] shadow-lg overflow-y-scroll',
-          'transition-transform duration-500',
-          isOpen ? 'translate-x-0' : '-translate-x-full',
+          mobile ? 'lg:hidden fixed z-50 top-20 left-0 bottom-0 w-[70%]' : 'relative',
+          'bg-white p-4 overflow-y-auto',
+          mobile ? 'transition-transform duration-500' : '',
+          mobile ? (isOpen ? 'translate-x-0' : '-translate-x-full') : '',
         )}
       >
         <div className="flex flex-col">
-          {categories.map((category) => {
+          {CATEGORIES.map((category) => {
             const isCategoryOpen = openCategories[category.name];
             const isCategoryActive = selected.category === category.name;
 
@@ -154,7 +145,7 @@ const Sidebar = ({ isOpen, setOpen }: SidebarProps) => {
                                       subCategory: subCat.type,
                                       brand,
                                     });
-                                    setOpen(false);
+                                    if (mobile) setOpen(false);
                                   }}
                                   className={clsx(
                                     'pl-3 ml-3 rounded-lg py-1 transition-colors cursor-pointer',

@@ -1,14 +1,13 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Image from 'next/image';
-import { Search, SlidersHorizontal, Grid3X3, List, Star } from 'lucide-react';
-
+import { Search, SlidersHorizontal, Grid3X3, List } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Slider } from '@/components/ui/slider';
+
 import {
   Select,
   SelectContent,
@@ -16,16 +15,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { PRODUCTS } from '@/docs/products';
+import ProductCardList from './ProductCardList';
+import ProductCardGrid from '../home/ProductCardGrid';
+
 
 const CATEGORIES = ['Electronics', 'Clothing', 'Accessories', 'Home & Kitchen'];
 const BRANDS = [
@@ -186,127 +180,23 @@ export default function Products() {
     </div>
   );
 
-  const ProductCard = ({ product }: { product: (typeof PRODUCTS)[0] }) => {
+  
+
+  const ProductCards = ({ product }: { product: (typeof PRODUCTS)[0] }) => {
     const discount = Math.round(
       ((product.originalPrice - product.price) / product.originalPrice) * 100,
     );
-
     if (viewMode === 'list') {
-      return (
-        <Card className="overflow-hidden">
-          <CardContent className="p-0">
-            <div className="flex flex-col sm:flex-row">
-              <div className="relative w-full sm:w-48 h-48 sm:h-32">
-                <Image
-                  src={product.image || '/placeholder.svg'}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                />
-                {!product.inStock && (
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <span className="text-white font-semibold">Out of Stock</span>
-                  </div>
-                )}
-                {product.featured && <Badge className="absolute top-2 left-2">Featured</Badge>}
-                {discount > 0 && (
-                  <Badge variant="destructive" className="absolute top-2 right-2">
-                    -{discount}%
-                  </Badge>
-                )}
-              </div>
-              <div className="flex-1 p-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-2">{product.brand}</p>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="flex items-center">
-                        <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm ml-1">{product.rating}</span>
-                      </div>
-                      <span className="text-sm text-muted-foreground">
-                        ({product.reviews} reviews)
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-start sm:items-end">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-lg font-bold">${product.price}</span>
-                      {product.originalPrice > product.price && (
-                        <span className="text-sm text-muted-foreground line-through">
-                          ${product.originalPrice}
-                        </span>
-                      )}
-                    </div>
-                    <Button size="sm" disabled={!product.inStock}>
-                      {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      );
+      return <ProductCardList discount={discount} product={product}></ProductCardList>;
     }
-
-    return (
-      <Card className="group overflow-hidden">
-        <CardContent className="p-0">
-          <div className="relative aspect-square overflow-hidden">
-            <Image
-              src={product.image || '/placeholder.svg'}
-              alt={product.name}
-              fill
-              className="object-cover transition-transform group-hover:scale-105"
-            />
-            {!product.inStock && (
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                <span className="text-white font-semibold">Out of Stock</span>
-              </div>
-            )}
-            {product.featured && <Badge className="absolute top-2 left-2">Featured</Badge>}
-            {discount > 0 && (
-              <Badge variant="destructive" className="absolute top-2 right-2">
-                -{discount}%
-              </Badge>
-            )}
-          </div>
-          <div className="p-4">
-            <h3 className="font-semibold mb-1 line-clamp-2">{product.name}</h3>
-            <p className="text-sm text-muted-foreground mb-2">{product.brand}</p>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center">
-                <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                <span className="text-sm ml-1">{product.rating}</span>
-              </div>
-              <span className="text-sm text-muted-foreground">({product.reviews})</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-bold">${product.price}</span>
-                {product.originalPrice > product.price && (
-                  <span className="text-sm text-muted-foreground line-through">
-                    ${product.originalPrice}
-                  </span>
-                )}
-              </div>
-              <Button size="sm" disabled={!product.inStock}>
-                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    );
+    return <ProductCardGrid discount={discount} product={product} textColor="#2b2b2b"></ProductCardGrid>;
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen border-2 border-red-500 bg-[#f7f7f7]">
+      <div className="container mx-auto px-4 flex flex-col">
         {/* Header */}
-        <div className="mb-8">
+        <div className="my-8">
           <h1 className="text-3xl font-bold mb-2">Products</h1>
           <p className="text-muted-foreground">Discover our amazing collection of products</p>
         </div>
@@ -376,7 +266,7 @@ export default function Products() {
         </div>
 
         {/* Main Content */}
-        <div className="flex gap-6">
+        <div className="flex gap-6 mb-10">
           {/* Filters (Desktop) */}
           <aside className="hidden lg:block w-64 flex-shrink-0">
             <FilterContent />
@@ -387,15 +277,15 @@ export default function Products() {
             {filteredAndSortedProducts.length === 0 ? (
               <p className="text-muted-foreground">No products found.</p>
             ) : viewMode === 'grid' ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                 {filteredAndSortedProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCards key={product.id} product={product} />
                 ))}
               </div>
             ) : (
               <div className="space-y-4">
                 {filteredAndSortedProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCards key={product.id} product={product} />
                 ))}
               </div>
             )}

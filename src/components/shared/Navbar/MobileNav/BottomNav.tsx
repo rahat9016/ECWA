@@ -21,7 +21,7 @@ const BottomNav = () => {
     <div>
       {/* Search Box */}
       <div
-        className={`fixed flex items-center duration-200 top-20 w-full border-2 border-card shadow-md bg-white ${
+        className={`fixed z-50 flex items-center duration-200 top-20 w-full border-2 border-card shadow-md bg-white ${
           isSearchBoxOpen ? 'scale-100 h-12' : 'scale-0 h-0 pointer-events-none'
         }`}
       >
@@ -97,7 +97,7 @@ const BottomNav = () => {
       {/* Overlay */}
       {isSearchBoxOpen && (
         <div
-          className="fixed inset-0 top-32 bottom-20 backdrop-blur-sm bg-black/10 duration-200"
+          className="fixed z-50 inset-0 top-32 bottom-20 backdrop-blur-sm bg-black/10 duration-200"
           onClick={() => setIsSearchBoxOpen(false)}
         />
       )}
