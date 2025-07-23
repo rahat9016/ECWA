@@ -18,8 +18,10 @@
   --color-card: #cdcdcd;
   --color-cardGray: #9b9b9c;
   --color-bgWhite: #fafafa;
+  --color-navWhite:#F3F5F6;
   --font-family: 'Poppins', 'sans-serif';
 }
+
 
 @theme inline {
   --color-background: var(--background);
@@ -62,7 +64,7 @@
 body {
   font-family: var(--font-poppins);
   overflow-x: hidden;
-  /* background-color: var(--color-bgGray); */
+  background-color: var(--color-bgGray);
 }
 h1,
 h2,
@@ -76,9 +78,14 @@ h6 {
 .container {
   display: flex;
   max-width: 1280px;
-  padding: 0 16px;
+  padding-left: 16px;
+  padding-right: 16px;
   margin: 0 auto;
   width: 100%;
+}
+
+button{
+  cursor: pointer;
 }
 
 

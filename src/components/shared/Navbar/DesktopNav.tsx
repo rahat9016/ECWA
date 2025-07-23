@@ -12,7 +12,7 @@ const DesktopNav = () => {
 
   return (
     <div className="hidden fixed z-50 right-0 left-0 lg:flex bg-base text-white h-24  items-center justify-center">
-      <div className="lg:container px-4 w-full flex items-center justify-between gap-16">
+      <div className="container px-4 w-full flex items-center justify-between gap-16">
         <Image src={'/logo.png'} alt="logo" height={120} width={160} />
         <div className="group w-full bg-bdrGray flex items-center pl-4 rounded-lg">
           <input placeholder="Search" className="h-12 text-gray-800 pr-4 w-full outline-none" />

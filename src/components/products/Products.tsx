@@ -18,7 +18,7 @@ import {
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { PRODUCTS } from '@/docs/products';
 import ProductCardList from './ProductCardList';
-import ProductCardGrid from '../home/ProductCardGrid';
+import ProductCardGrid from './ProductCardGrid';
 
 
 const CATEGORIES = ['Electronics', 'Clothing', 'Accessories', 'Home & Kitchen'];
@@ -193,8 +193,8 @@ export default function Products() {
   };
 
   return (
-    <div className="min-h-screen border-2 border-red-500 bg-[#f7f7f7]">
-      <div className="container mx-auto px-4 flex flex-col">
+    <div className="min-h-screen border-2 border-red-500">
+      <div className="container mx-auto px-4 flex flex-col bg-white">
         {/* Header */}
         <div className="my-8">
           <h1 className="text-3xl font-bold mb-2">Products</h1>

@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { NEW_PRODUCTS } from '@/docs/homeDocs';
-import ProductCard from './ProductCardGrid';
+import ProductCard from '../products/ProductCardGrid';
 
 const LatestProducts = () => {
   return (
