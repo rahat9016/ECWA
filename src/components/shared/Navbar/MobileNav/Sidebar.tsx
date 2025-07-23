@@ -57,7 +57,7 @@ const Sidebar = ({
       <div
         className={clsx(
           mobile ? 'lg:hidden fixed z-50 top-20 left-0 bottom-0 w-[70%]' : 'relative',
-          'bg-white p-4 overflow-y-auto',
+          'backdrop-blur-2xl p-4 overflow-y-auto',
           mobile ? 'transition-transform duration-500' : '',
           mobile ? (isOpen ? 'translate-x-0' : '-translate-x-full') : '',
         )}

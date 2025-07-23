@@ -1,5 +1,3 @@
-
-
 export const PRODUCTS = [
   {
     id: 1,
@@ -105,4 +103,133 @@ export const PRODUCTS = [
     featured: false,
     brand: 'AromaBliss',
   },
+];
+
+export // Related products data
+const RELATED_PRODUCTS = [
+  {
+    id: 2,
+    name: 'Wireless Earbuds Pro',
+    category: 'Electronics',
+    price: 199.99,
+    originalPrice: 249.99,
+    rating: 4.6,
+    reviews: 1523,
+    image: '/placeholder.svg?height=300&width=300&text=Earbuds',
+    inStock: true,
+    featured: true,
+    brand: 'TechSound',
+    badge: 'Best Seller',
+  },
+  {
+    id: 3,
+    name: 'Studio Monitor Headphones',
+    category: 'Electronics',
+    price: 349.99,
+    originalPrice: 399.99,
+    rating: 4.9,
+    reviews: 892,
+    image: '/placeholder.svg?height=300&width=300&text=Studio',
+    inStock: true,
+    featured: false,
+    brand: 'AudioMax',
+    badge: 'Pro Choice',
+  },
+  {
+    id: 4,
+    name: 'Gaming Headset RGB',
+    category: 'Electronics',
+    price: 159.99,
+    originalPrice: 199.99,
+    rating: 4.4,
+    reviews: 2156,
+    image: '/placeholder.svg?height=300&width=300&text=Gaming',
+    inStock: true,
+    featured: true,
+    brand: 'GameSound',
+    badge: 'Gaming',
+  },
+  {
+    id: 5,
+    name: 'Portable Bluetooth Speaker',
+    category: 'Electronics',
+    price: 89.99,
+    originalPrice: 119.99,
+    rating: 4.7,
+    reviews: 634,
+    image: '/placeholder.svg?height=300&width=300&text=Speaker',
+    inStock: true,
+    featured: false,
+    brand: 'TechSound',
+    badge: 'Portable',
+  },
+];
+
+export const PRODUCT = {
+  id: 1,
+  name: 'Premium Wireless Bluetooth Headphones',
+  brand: 'TechSound Pro',
+  price: 299.99,
+  originalPrice: 399.99,
+  rating: 4.8,
+  reviewCount: 2847,
+  inStock: true,
+  stockCount: 23,
+  category: 'Electronics',
+  subcategory: 'Audio & Headphones',
+  sku: 'TSP-WH-001',
+  description:
+    'Experience premium audio quality with our flagship wireless headphones featuring advanced noise cancellation, 40-hour battery life, and studio-grade sound drivers.',
+  images: [
+    '/placeholder.svg?height=600&width=600&text=Main+Product',
+    '/placeholder.svg?height=600&width=600&text=Side+View',
+    '/placeholder.svg?height=600&width=600&text=Interior',
+    '/placeholder.svg?height=600&width=600&text=Accessories',
+    '/placeholder.svg?height=600&width=600&text=Lifestyle',
+  ],
+  features: [
+    'Active Noise Cancellation (ANC)',
+    '40-hour battery life',
+    'Quick charge: 5 min = 3 hours playback',
+    'Premium leather ear cushions',
+    'Bluetooth 5.3 connectivity',
+    'Multi-device pairing',
+    'Touch controls',
+    'Foldable design with carrying case',
+  ],
+  specifications: {
+    'Driver Size': '40mm Dynamic',
+    'Frequency Response': '20Hz - 20kHz',
+    Impedance: '32 Ohms',
+    'Battery Life': '40 hours (ANC off), 30 hours (ANC on)',
+    'Charging Time': '2 hours (full charge)',
+    Weight: '280g',
+    Connectivity: 'Bluetooth 5.3, 3.5mm jack',
+    Warranty: '2 years international',
+  },
+  colors: [
+    { name: 'Midnight Black', value: '#1a1a1a', available: true },
+    { name: 'Pearl White', value: '#f8f9fa', available: true },
+    { name: 'Rose Gold', value: '#e8b4a0', available: false },
+    { name: 'Space Gray', value: '#6c757d', available: true },
+  ],
+  sizes: [{ name: 'One Size', available: true }],
+  shipping: {
+    free: true,
+    estimatedDays: '2-3 business days',
+    express: {
+      available: true,
+      price: 12.99,
+      days: 'Next business day',
+    },
+  },
+  warranty: '2 years manufacturer warranty',
+  returnPolicy: '30-day hassle-free returns',
+};
+
+export const TABSTITLES = [
+  { value: 'description', label: 'Description' },
+  { value: 'specifications', label: 'Specifications' },
+  { value: 'reviews', label: `Reviews (${PRODUCT.reviewCount})` },
+  { value: 'shipping', label: 'Shipping & Returns' },
 ];

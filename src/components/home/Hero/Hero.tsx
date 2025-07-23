@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <section className="py-5 lg:py-20 bg-gradient-to-r from-[#90e0ef]/20 via-white to-[#56cfe1]/20">
       <div className="container relative mx-auto px-4">
-        <div className="absolute hidden lg:block bg-white w-80 my-5 px-2 py-5 top-0 bottom-0 overflow-auto">
+        <div className="absolute hidden lg:block bg-[#e0f5f2] backdrop-blur-2xl w-80 my-5 px-2 py-5 top-0 bottom-0 overflow-auto">
           <Sidebar mobile={false} className="static w-full" />
         </div>
         <div className="w-full pl:0  lg:pl-80">
