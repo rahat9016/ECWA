@@ -50,7 +50,7 @@ export default function ProductDetails() {
     <div className="min-h-screen flex flex-col my-8">
       {/* Breadcrumb */}
       <div className="container bg-white border-b h-10 items-center">
-        <div className="">
+        <div className="overflow-hidden">
           <div className="flex items-center gap-2 text-sm text-gray-600">
             <Link href="/" className="hover:text-blue-600 transition-colors">
               Home
@@ -67,7 +67,7 @@ export default function ProductDetails() {
               {PRODUCT.category}
             </Link>
             <span>/</span>
-            <span className="text-gray-900 font-medium">{PRODUCT.name}</span>
+            <span className="text-gray-900 font-medium whitespace-nowrap">{PRODUCT.name}</span>
           </div>
         </div>
       </div>
