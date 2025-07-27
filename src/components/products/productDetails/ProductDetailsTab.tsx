@@ -58,7 +58,6 @@ export function ProductDetailsTab(props: ProductDetailsTabProps) {
             </TabsTrigger>
           ))}
         </TabsList>
-
         <TabsContent value="description" className="p-6 space-y-6">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Product Description</h3>
