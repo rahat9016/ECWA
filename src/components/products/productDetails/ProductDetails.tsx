@@ -9,6 +9,7 @@ import { RelatedProducts } from './RelatedProducts';
 import { ProductDetailsImageCarousel } from './ProductDetailsImageCarousel';
 import { BackButton } from '../../BackButton';
 import { ProductDetailsInfo } from './ProductDetailsInfo';
+import SellerInfo from './SellerInfo';
 
 export default function ProductDetails() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -129,6 +130,27 @@ export default function ProductDetails() {
                 <p className="text-sm text-gray-600">100% genuine product</p>
               </div>
             </div>
+
+            <SellerInfo />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
         </div>
 
