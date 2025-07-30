@@ -10,6 +10,7 @@ import { ProductDetailsImageCarousel } from './ProductDetailsImageCarousel';
 import { BackButton } from '../../BackButton';
 import { ProductDetailsInfo } from './ProductDetailsInfo';
 import SellerInfo from './SellerInfo';
+import Image from 'next/image';
 
 export default function ProductDetails() {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -107,6 +108,15 @@ export default function ProductDetails() {
               <div>
                 <p className="font-semibold text-gray-900">Free Shipping</p>
                 <p className="text-sm text-gray-600">{PRODUCT.shipping.estimatedDays}</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-200">
+              <div>
+                <Image src="/cashondelivery.png" alt="cash on delivery" width={24} height={24} />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">Cash On Delivery</p>
+                {/* <p className="text-sm text-gray-600">{PRODUCT.shipping.estimatedDays}</p> */}
               </div>
             </div>
             <div className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-200">
