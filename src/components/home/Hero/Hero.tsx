@@ -32,14 +32,14 @@ const Hero = () => {
         <div className="w-full pl:0  lg:pl-80">
           <div className='py-5 px-0 lg:px-3 flex flex-col gap-5'>
             <div className='bg-white w-full rounded-xl'>
-              <Carousel height={'h-50 lg:h-96'} delay={5000} images={imagesMain} />
+              <Carousel height={'h-[300px] md:h-[400px] lg:h-[500px]'} delay={5000} images={imagesMain} />
             </div>
             <div className='grid grid-cols-2 gap-5 w-full'>
               <div className='h-full'>
-                <Carousel height={"h-40 lg:h-72"} delay={4500} images={imagesSubLeft} />
+                <Carousel height={"h-40"} delay={4500} images={imagesSubLeft} />
               </div>
               <div className='h-full'>
-                <Carousel height={"h-40 lg:h-72"} delay={4000} slideDirection='left' images={imagesSubRight} />
+                <Carousel height={"h-40"} delay={4000} slideDirection='left' images={imagesSubRight} />
               </div>
             </div>
           </div>

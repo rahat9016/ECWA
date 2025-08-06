@@ -1,8 +1,8 @@
-import React from 'react'
+import Wishlist from "@/components/wishList/WishList"
 
 const page = () => {
   return (
-    <div>page</div>
+    <Wishlist />
   )
 }
 
