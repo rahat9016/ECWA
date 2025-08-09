@@ -162,11 +162,11 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container  flex flex-col mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <Link href="/">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" className="bg-gray-50">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Continue Shopping
             </Button>

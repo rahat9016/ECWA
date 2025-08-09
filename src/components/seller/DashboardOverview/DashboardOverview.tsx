@@ -1,0 +1,36 @@
+
+import TimeRangeSelector from './TimeRangeSelector';
+import SalesStatistics from './SalesStatistics';
+import OrderStatus from './OrderStatus';
+import TopProducts from './TopProducts';
+import RecentOrders from './RecentOrders';
+import RevenueTrendsChart from './RevenueTrendsChart';
+import OrderStatusDistribution from './OrderStatusDistribution';
+
+const DashboardOverview = ({timeRange, setTimeRange}:{timeRange:string, setTimeRange:(value:string)=>void}) => {
+  return (
+    <div className="space-y-6">
+      <TimeRangeSelector timeRange={timeRange} setTimeRange={setTimeRange} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <SalesStatistics timeRange={timeRange} />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <OrderStatus timeRange={timeRange} />
+      </div>
+
+      {/* Charts Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <RevenueTrendsChart timeRange={timeRange} />
+        <OrderStatusDistribution />
+      </div>
+
+      {/* Bottom Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <TopProducts />
+        <RecentOrders />
+      </div>
+    </div>
+  );
+};
+
+export default DashboardOverview;
