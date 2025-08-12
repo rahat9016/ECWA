@@ -12,3 +12,15 @@ export interface ProductType {
   brand?: string;
   badge?:string;
 }
+
+export interface Product {
+  id: number;
+  name: string;
+  sku: string;
+  price: number;
+  stock: number;
+  category: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}

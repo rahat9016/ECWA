@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import Products from './Products';
-import Orders from './Orders';
+import Products from './Products/Products';
+import Orders from './Orders/Orders';
 import Payments from './Payments';
 import SellerSettings from './SellerSettings';
-import DashboardOverview from './DashboardOverview/DashboardOverview';
 import Sidebar from './Sidebar';
 import Header from './Header';
+import Dashboard from './Dashboard/Dashboard';
 
 
 
@@ -66,7 +66,7 @@ export default function SellerDashboard() {
         <Header setSidebarOpen={setSidebarOpen} activeTab={activeTab} />
         <main className="flex-1 p-6 overflow-auto">
           {activeTab === 'overview' && (
-            <DashboardOverview timeRange={timeRange} setTimeRange={setTimeRange} />
+            <Dashboard timeRange={timeRange} setTimeRange={setTimeRange} />
           )}
           {activeTab === 'products' && <Products />}
           {activeTab === 'orders' && <Orders />}

@@ -7,7 +7,7 @@ import RecentOrders from './RecentOrders';
 import RevenueTrendsChart from './RevenueTrendsChart';
 import OrderStatusDistribution from './OrderStatusDistribution';
 
-const DashboardOverview = ({timeRange, setTimeRange}:{timeRange:string, setTimeRange:(value:string)=>void}) => {
+const Dashboard = ({timeRange, setTimeRange}:{timeRange:string, setTimeRange:(value:string)=>void}) => {
   return (
     <div className="space-y-6">
       <TimeRangeSelector timeRange={timeRange} setTimeRange={setTimeRange} />
@@ -33,4 +33,4 @@ const DashboardOverview = ({timeRange, setTimeRange}:{timeRange:string, setTimeR
   );
 };
 
-export default DashboardOverview;
+export default Dashboard;

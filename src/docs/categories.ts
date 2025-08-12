@@ -163,3 +163,14 @@ export const CATEGORIES = [
     ],
   },
 ];
+
+
+
+export const FILTER_CATEGORIES = [
+  'All Categories',
+  'Electronics',
+  'Fashion',
+  'Home & Living',
+  'Sports & Fitness',
+];
+export const STOCK_STATUS_OPTIONS = ['All Status', 'active', 'low_stock', 'out_of_stock'];
