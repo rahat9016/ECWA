@@ -1,6 +1,17 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { Clock, Truck, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import {
+  Clock,
+  Truck,
+  CheckCircle,
+  XCircle,
+  AlertCircle,
+  Package,
+  AlertTriangle,
+} from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -48,4 +59,42 @@ export const getStatusColor = (status: string) => {
   }
 };
 
+export const getProductStatus = (stock: number) => {
+  if (stock === 0) return 'out_of_stock';
+  if (stock <= 5) return 'low_stock';
+  return 'active';
+};
+
+export const getStatusBadge = (status: string) => {
+  switch (status) {
+    case 'active':
+      return (
+        <Badge className="bg-green-100 text-green-800 hover:bg-green-100">
+          <CheckCircle className="w-3 h-3 mr-1" />
+          Active
+        </Badge>
+      );
+    case 'low_stock':
+      return (
+        <Badge className="bg-yellow-100 text-yellow-800 hover:bg-yellow-100">
+          <AlertTriangle className="w-3 h-3 mr-1" />
+          Low Stock
+        </Badge>
+      );
+    case 'out_of_stock':
+      return (
+        <Badge className="bg-red-100 text-red-800 hover:bg-red-100">
+          <XCircle className="w-3 h-3 mr-1" />
+          Out of Stock
+        </Badge>
+      );
+    default:
+      return (
+        <Badge variant="secondary">
+          <Package className="w-3 h-3 mr-1" />
+          Unknown
+        </Badge>
+      );
+  }
+};
 
