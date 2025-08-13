@@ -16,7 +16,7 @@ const Sidebar = ({
 }) => {
   return (
     <div
-      className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
+      className={`border-2 border-red-500 fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
@@ -46,7 +46,7 @@ const Sidebar = ({
                 setActiveTab(item.id);
                 setSidebarOpen(false);
               }}
-              className={`w-full flex items-center gap-3 px-3 py-3 text-left rounded-lg transition-colors ${
+              className={`w-full flex items-center gap-3 p-3 text-left rounded-lg transition-colors ${
                 activeTab === item.id
                   ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
                   : 'text-gray-700 hover:bg-gray-100'
