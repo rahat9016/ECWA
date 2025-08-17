@@ -98,3 +98,6 @@ export const getStatusBadge = (status: string) => {
   }
 };
 
+export const CapFirstLetter=(str:string)=>{
+  return str[0].toUpperCase()+str.slice(1);
+}

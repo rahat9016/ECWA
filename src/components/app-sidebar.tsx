@@ -13,7 +13,6 @@ import {
   SidebarMenuItem,
   SidebarHeader,
 } from '@/components/ui/sidebar';
-import { Separator } from '@radix-ui/react-separator';
 
 export function AppSidebar() {
   const pathname = usePathname();

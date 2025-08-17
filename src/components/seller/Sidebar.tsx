@@ -16,7 +16,7 @@ const Sidebar = ({
 }) => {
   return (
     <div
-      className={`border-2 border-red-500 fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
+      className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
@@ -41,13 +41,13 @@ const Sidebar = ({
         <div className="space-y-1">
           {SidebarItems.map((item) => (
             <button
-              key={item.id}
+              key={item.name}
               onClick={() => {
-                setActiveTab(item.id);
+                setActiveTab(item.name);
                 setSidebarOpen(false);
               }}
               className={`w-full flex items-center gap-3 p-3 text-left rounded-lg transition-colors ${
-                activeTab === item.id
+                activeTab === item.name
                   ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
                   : 'text-gray-700 hover:bg-gray-100'
               }`}

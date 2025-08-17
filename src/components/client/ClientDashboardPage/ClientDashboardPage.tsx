@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DollarSign, Package, ShoppingCart, Users } from "lucide-react"
 import RecentOrders from "./RecentOrders"

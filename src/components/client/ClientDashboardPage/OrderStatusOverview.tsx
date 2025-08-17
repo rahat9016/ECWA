@@ -16,7 +16,7 @@ const OrderStatusOverview = () => {
           ].map((status) => (
             <div key={status.label} className="flex items-center justify-between">
               <span>{status.label}</span>
-              <Badge variant={status.variant as any}>{status.count}</Badge>
+              <Badge variant={status.variant as "default"}>{status.count}</Badge>
             </div>
           ))}
         </div>
