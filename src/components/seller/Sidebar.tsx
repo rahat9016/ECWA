@@ -41,13 +41,13 @@ const Sidebar = ({
         <div className="space-y-1">
           {SidebarItems.map((item) => (
             <button
-              key={item.id}
+              key={item.name}
               onClick={() => {
-                setActiveTab(item.id);
+                setActiveTab(item.name);
                 setSidebarOpen(false);
               }}
-              className={`w-full flex items-center gap-3 px-3 py-3 text-left rounded-lg transition-colors ${
-                activeTab === item.id
+              className={`w-full flex items-center gap-3 p-3 text-left rounded-lg transition-colors ${
+                activeTab === item.name
                   ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
                   : 'text-gray-700 hover:bg-gray-100'
               }`}

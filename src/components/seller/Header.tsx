@@ -24,7 +24,7 @@ const Header = ({
         </Button>
         <div>
           <h1 className="text-2xl font-bold text-gray-900">
-            {SidebarItems.find((item) => item.id === activeTab)?.name || 'Overview'}
+            {SidebarItems.find((item) => item.name === activeTab)?.name || 'Overview'}
           </h1>
           <p className="text-sm text-gray-600">Welcome back, John! Here&apos;s your store overview.</p>
         </div>

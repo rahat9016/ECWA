@@ -17,12 +17,12 @@ const DashboardCard = ({
   mainIcon: ComponentType<SVGProps<SVGSVGElement>>;
 }) => {
   return (
-    <Card className={`bg-gradient-to-br ${bgColor} text-white`}>
+    <Card className={`hover:shadow-lg transition-shadow bg-gradient-to-br ${bgColor} text-white`}>
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
           <div>
             <p className={`text-sm font-medium`}>{title}</p>
-            <p className="text-3xl font-bold mt-2">${value}</p>
+            <p className="text-xl lg:text-3xl font-bold mt-2">${value}</p>
             {SubtitleIcon && (
               <div className="flex items-center gap-1 mt-2">
                 {SubtitleIcon && <SubtitleIcon className="w-4 h-4" />}

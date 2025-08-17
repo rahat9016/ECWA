@@ -9,7 +9,7 @@ const SalesStatistics = ({ timeRange }: { timeRange: string }) => {
   // Calculate statistics
   const todaySales = 2847.5;
   const weekSales = 18945.75;
-  const monthSales = 125678.9;
+  const monthSales = 125.9;
 
   const getOrderStats = () => {
     switch (timeRange) {
