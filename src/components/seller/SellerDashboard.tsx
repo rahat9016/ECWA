@@ -13,26 +13,6 @@ export default function SellerDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('/seller');
   const [timeRange, setTimeRange] = useState('month');
-
-  // const getStatusIcon = (status: string) => {
-  //   switch (status) {
-  //     case 'delivered':
-  //       return <CheckCircle className="w-4 h-4 text-green-600" />;
-  //     case 'shipped':
-  //       return <Truck className="w-4 h-4 text-blue-600" />;
-  //     case 'pending':
-  //       return <Clock className="w-4 h-4 text-yellow-600" />;
-  //     case 'canceled':
-  //       return <XCircle className="w-4 h-4 text-red-600" />;
-  //     default:
-  //       return <AlertCircle className="w-4 h-4 text-gray-600" />;
-  //   }
-  // };
-
-
-  console.log(setActiveTab("/seller"));
-
-
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {sidebarOpen && (
