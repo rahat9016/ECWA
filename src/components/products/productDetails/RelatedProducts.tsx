@@ -1,5 +1,5 @@
 import { RELATED_PRODUCTS } from '@/docs/products';
-import ProductCardGrid from '../ProductCardGrid';
+import ProductCardGrid from '../../ProductCardGrid';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';

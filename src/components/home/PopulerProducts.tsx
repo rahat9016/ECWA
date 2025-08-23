@@ -1,6 +1,6 @@
 import { FEATURED_PRODUCTS } from '@/docs/homeDocs';
 import React from 'react';
-import ProductCard from '../products/ProductCardGrid';
+import ProductCard from '../ProductCardGrid';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';

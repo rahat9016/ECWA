@@ -25,7 +25,7 @@ export const FEATURES = [
   {
     icon: <RotateCcw className="w-6 h-6" />,
     title: 'Easy Returns',
-    description: '30-day hassle-free returns',
+    description: '30-day hassle-free returns policy',
   },
   {
     icon: <Headphones className="w-6 h-6" />,

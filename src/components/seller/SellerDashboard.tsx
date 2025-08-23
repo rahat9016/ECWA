@@ -11,7 +11,7 @@ import Dashboard from './DashboardContent/Dashboard';
 
 export default function SellerDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('/seller');
+  const [activeTab, setActiveTab] = useState('seller');
   const [timeRange, setTimeRange] = useState('month');
   return (
     <div className="min-h-screen bg-gray-50 flex">
@@ -26,7 +26,7 @@ export default function SellerDashboard() {
       <div className="w-full flex flex-col min-w-0">
         {/* <Header setSidebarOpen={setSidebarOpen} activeTab={activeTab} /> */}
         <main className="p-0 lg:p-6 overflow-auto w-full">
-          {activeTab === 'overview' && (
+          {activeTab === 'seller' && (
             <Dashboard timeRange={timeRange} setTimeRange={setTimeRange} />
           )}
           {activeTab === 'products' && <Products />}
