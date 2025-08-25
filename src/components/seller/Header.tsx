@@ -2,15 +2,9 @@ import { Menu, Bell, Search, RefreshCw } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { SidebarItems } from '@/docs/dashboard';
+// import { SidebarItems } from '@/docs/dashboard';
 
-const Header = ({
-  setSidebarOpen,
-  activeTab,
-}: {
-  setSidebarOpen: (value: boolean) => void;
-  activeTab: string;
-}) => {
+const Header = ({ setSidebarOpen }: { setSidebarOpen: (value: boolean) => void }) => {
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 h-16 flex items-center justify-between px-6">
       <div className="flex items-center gap-4">
@@ -24,9 +18,12 @@ const Header = ({
         </Button>
         <div>
           <h1 className="text-2xl font-bold text-gray-900">
-            {SidebarItems.find((item) => item.name === activeTab)?.name || 'Overview'}
+            Dashboard
+            {/* {SidebarItems.find((item) => item.name === activeTab)?.name || 'Overview'} */}
           </h1>
-          <p className="text-sm text-gray-600">Welcome back, John! Here&apos;s your store overview.</p>
+          <p className="text-sm text-gray-600">
+            Welcome back, John! Here&apos;s your store overview.
+          </p>
         </div>
       </div>
 

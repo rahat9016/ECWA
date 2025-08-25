@@ -95,13 +95,13 @@ const Sidebar = ({
                       isCategoryOpen ? 'max-h-[500px] py-2' : 'max-h-0',
                     )}
                   >
-                    {category.types.map((subCat) => {
-                      const isSubCatOpen = openSubCategories[subCat.type];
+                    {category.subCategories.map((subCat) => {
+                      const isSubCatOpen = openSubCategories[subCat.name];
                       const isSubCategoryActive =
-                        selected.category === category.name && selected.subCategory === subCat.type;
+                        selected.category === category.name && selected.subCategory === subCat.name;
 
                       return (
-                        <div key={subCat.type} className="ml-3">
+                        <div key={subCat.name} className="ml-3">
                           {/* Subcategory Header */}
                           <div
                             className={clsx(
@@ -111,15 +111,15 @@ const Sidebar = ({
                                 : 'text-black hover:text-blue-500',
                             )}
                             onClick={() => {
-                              toggle(setOpenSubCategories, subCat.type);
+                              toggle(setOpenSubCategories, subCat.name);
                               setSelected({
                                 category: category.name,
-                                subCategory: subCat.type,
+                                subCategory: subCat.name,
                                 brand: '',
                               });
                             }}
                           >
-                            {subCat.type}
+                            {subCat.name}
                             {isSubCatOpen ? <IoIosArrowUp size={20} /> : <IoIosArrowDown size={20} />}
                           </div>
 
@@ -133,7 +133,7 @@ const Sidebar = ({
                             {subCat.brands.map((brand) => {
                               const isBrandActive =
                                 selected.category === category.name &&
-                                selected.subCategory === subCat.type &&
+                                selected.subCategory === subCat.name &&
                                 selected.brand === brand;
 
                               return (
@@ -142,7 +142,7 @@ const Sidebar = ({
                                   onClick={() => {
                                     setSelected({
                                       category: category.name,
-                                      subCategory: subCat.type,
+                                      subCategory: subCat.name,
                                       brand,
                                     });
                                     if (mobile) setOpen(false);

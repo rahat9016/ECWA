@@ -218,7 +218,7 @@ export default function Wishlist() {
   const [showOutOfStock, setShowOutOfStock] = useState(true);
   const [isSelectMode, setIsSelectMode] = useState(false);
   const [quantities, setQuantities] = useState<Record<number, number>>({});
-  const isNew = true;
+
   // Get unique categories
   const categories = useMemo(() => {
     const cats = Array.from(new Set(wishlistItems.map((item) => item.category)));
@@ -344,7 +344,7 @@ export default function Wishlist() {
   const GridView = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {filteredAndSortedItems.map((item) => {
-        const discount = Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100);
+        // const discount = Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100);
         const isSelected = selectedItems.includes(item.id);
         const quantity = getItemQuantity(item.id);
 

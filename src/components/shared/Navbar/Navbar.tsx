@@ -1,6 +1,4 @@
-'use client';
 
-import { useState } from 'react';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav/MobileNav';
 

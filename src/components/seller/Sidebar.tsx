@@ -39,7 +39,7 @@ const Sidebar = ({
 
       <nav className="mt-6 px-3">
         <div className="space-y-1">
-          {SidebarItems.map((item) => (
+          {SidebarItems("seller").map((item) => (
             <button
               key={item.name}
               onClick={() => {

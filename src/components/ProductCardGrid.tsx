@@ -7,6 +7,8 @@ import { ProductType } from '@/types/product';
 
 interface ProductCardGridProps {
   product: ProductType;
+  discount?:number;
+  textColor?:string;
   isNew?: boolean;
 }
 

@@ -1,3 +1,17 @@
+
+import { IconType } from 'react-icons';
+
+export interface SubCategory {
+  name: string;
+  brands: string[];
+}
+
+export interface Category {
+  name: string;
+  icon: IconType;
+  subCategories: SubCategory[];
+}
+
 export interface ProductType {
   id: number;
   name: string;

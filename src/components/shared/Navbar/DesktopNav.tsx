@@ -7,7 +7,6 @@ import { useState } from 'react';
 import { PiShoppingCart } from 'react-icons/pi';
 import { LuUserRoundPlus } from 'react-icons/lu';
 import { useRouter } from 'next/navigation';
-import { Navigation } from 'swiper/modules';
 import { RxCross2 } from 'react-icons/rx';
 
 const DesktopNav = () => {

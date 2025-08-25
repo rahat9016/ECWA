@@ -1,29 +1,30 @@
 
 import { MdOutlinePhoneAndroid, MdOutlineSportsSoccer, MdOutlineDirectionsCar, MdOutlineHome, MdOutlineBook, MdOutlineFace } from 'react-icons/md';
 
+
 export const CATEGORIES = [
   {
     name: 'electronics',
     icon: MdOutlinePhoneAndroid,
-    types: [
+    subCategories: [
       { 
-        type: 'Smartphones', 
+        name: 'Smartphones', 
         brands: ['Samsung', 'Apple', 'Xiaomi', 'OnePlus', 'Google', 'Huawei', 'Oppo', 'Vivo'] 
       },
       { 
-        type: 'Laptops & Computers', 
+        name: 'Laptops & Computers', 
         brands: ['Apple', 'Dell', 'HP', 'Lenovo', 'Asus', 'Acer', 'MSI', 'Microsoft'] 
       },
       { 
-        type: 'Audio & Headphones', 
+        name: 'Audio & Headphones', 
         brands: ['Sony', 'Bose', 'Apple', 'Sennheiser', 'JBL', 'Beats', 'Audio-Technica', 'Skullcandy'] 
       },
       { 
-        type: 'Cameras & Photography', 
+        name: 'Cameras & Photography', 
         brands: ['Canon', 'Nikon', 'Sony', 'Fujifilm', 'Panasonic', 'Olympus', 'GoPro', 'DJI'] 
       },
       { 
-        type: 'Smartwatches & Wearables', 
+        name: 'Smartwatches & Wearables', 
         brands: ['Apple', 'Samsung', 'Fitbit', 'Garmin', 'Fossil', 'Amazfit', 'Polar', 'Suunto'] 
       },
     ],
@@ -31,21 +32,21 @@ export const CATEGORIES = [
   {
     name: 'fashion',
     icon: MdOutlineFace,
-    types: [
+    subCategories: [
       { 
-        type: "Men's Clothing", 
+        name: "Men's Clothing", 
         brands: ['Nike', 'Adidas', 'Zara', 'H&M', 'Uniqlo', 'Ralph Lauren', 'Tommy Hilfiger', 'Calvin Klein'] 
       },
       { 
-        type: "Women's Clothing", 
+        name: "Women's Clothing", 
         brands: ['Zara', 'H&M', 'Forever 21', 'Mango', 'Uniqlo', "Victoria's Secret", 'Gap', "Levi's"] 
       },
       { 
-        type: 'Shoes & Footwear', 
+        name: 'Shoes & Footwear', 
         brands: ['Nike', 'Adidas', 'Puma', 'Converse', 'Vans', 'New Balance', 'Reebok', 'Under Armour'] 
       },
       { 
-        type: 'Accessories', 
+        name: 'Accessories', 
         brands: ['Michael Kors', 'Coach', 'Kate Spade', 'Fossil', 'Ray-Ban', 'Oakley', 'Gucci', 'Prada'] 
       },
     ],
@@ -53,21 +54,21 @@ export const CATEGORIES = [
   {
     name: 'home',
     icon: MdOutlineHome,
-    types: [
+    subCategories: [
       { 
-        type: 'Furniture', 
+        name: 'Furniture', 
         brands: ['IKEA', 'Ashley', 'Wayfair', 'West Elm', 'CB2', 'Pottery Barn', 'Crate & Barrel', 'Room & Board'] 
       },
       { 
-        type: 'Lighting', 
+        name: 'Lighting', 
         brands: ['Philips', 'IKEA', 'West Elm', 'CB2', 'Artemide', 'Flos', 'Tom Dixon', 'Muuto'] 
       },
       { 
-        type: 'Kitchen & Dining', 
+        name: 'Kitchen & Dining', 
         brands: ['KitchenAid', 'Cuisinart', 'Ninja', 'Instant Pot', 'Breville', 'All-Clad', 'Le Creuset', 'OXO'] 
       },
       { 
-        type: 'Home Decor', 
+        name: 'Home Decor', 
         brands: ['West Elm', 'CB2', 'Pottery Barn', 'Anthropologie', 'Urban Outfitters', 'Target', 'HomeGoods', 'Wayfair'] 
       },
     ],
@@ -75,17 +76,17 @@ export const CATEGORIES = [
   {
     name: 'gaming',
     icon: MdOutlineSportsSoccer,
-    types: [
+    subCategories: [
       { 
-        type: 'Gaming Consoles', 
+        name: 'Gaming Consoles', 
         brands: ['Sony', 'Microsoft', 'Nintendo', 'Steam', 'Valve', 'Atari', 'Sega', 'Retro-Bit'] 
       },
       { 
-        type: 'PC Gaming', 
+        name: 'PC Gaming', 
         brands: ['NVIDIA', 'AMD', 'Intel', 'Corsair', 'Razer', 'Logitech', 'SteelSeries', 'ASUS'] 
       },
       { 
-        type: 'Gaming Accessories', 
+        name: 'Gaming Accessories', 
         brands: ['Razer', 'Logitech', 'SteelSeries', 'Corsair', 'HyperX', 'Turtle Beach', 'Astro', 'Scuf'] 
       },
     ],
@@ -93,17 +94,17 @@ export const CATEGORIES = [
   {
     name: 'books',
     icon: MdOutlineBook,
-    types: [
+    subCategories: [
       { 
-        type: 'Books', 
+        name: 'Books', 
         brands: ['Penguin', 'HarperCollins', 'Simon & Schuster', 'Macmillan', 'Hachette', 'Scholastic', 'Random House', 'Oxford'] 
       },
       { 
-        type: 'Educational', 
+        name: 'Educational', 
         brands: ['Pearson', 'McGraw-Hill', 'Cengage', 'Wiley', 'Cambridge', 'Oxford', 'Elsevier', 'Springer'] 
       },
       { 
-        type: 'Music & Movies', 
+        name: 'Music & Movies', 
         brands: ['Sony', 'Universal', 'Warner', 'Disney', 'Paramount', 'Netflix', 'Amazon', 'Apple'] 
       },
     ],
@@ -111,17 +112,17 @@ export const CATEGORIES = [
   {
     name: 'sports',
     icon: MdOutlineSportsSoccer,
-    types: [
+    subCategories: [
       { 
-        type: 'Fitness Equipment', 
+        name: 'Fitness Equipment', 
         brands: ['Peloton', 'NordicTrack', 'Bowflex', 'Schwinn', 'Life Fitness', 'Precor', 'Nautilus', 'ProForm'] 
       },
       { 
-        type: 'Sportswear', 
+        name: 'Sportswear', 
         brands: ['Nike', 'Adidas', 'Under Armour', 'Puma', 'Reebok', 'New Balance', 'Lululemon', 'Athleta'] 
       },
       { 
-        type: 'Outdoor Sports', 
+        name: 'Outdoor Sports', 
         brands: ['Patagonia', 'The North Face', 'Columbia', 'REI', 'Salomon', 'Merrell', 'Garmin', 'GoPro'] 
       },
     ],
@@ -129,17 +130,17 @@ export const CATEGORIES = [
   {
     name: 'automotive',
     icon: MdOutlineDirectionsCar,
-    types: [
+    subCategories: [
       { 
-        type: 'Auto Parts', 
+        name: 'Auto Parts', 
         brands: ['Bosch', 'Denso', 'ACDelco', 'Motorcraft', 'NGK', 'Champion', 'Fram', 'Mobil 1'] 
       },
       { 
-        type: 'Car Accessories', 
+        name: 'Car Accessories', 
         brands: ['Thule', 'Yakima', 'WeatherTech', 'Covercraft', 'Husky Liners', 'AVS', 'Bushwacker', 'Rough Country'] 
       },
       { 
-        type: 'Oils & Fluids', 
+        name: 'Oils & Fluids', 
         brands: ['Mobil 1', 'Castrol', 'Valvoline', 'Shell', 'Pennzoil', 'Royal Purple', 'Lucas Oil', 'Liqui Moly'] 
       },
     ],
@@ -147,17 +148,17 @@ export const CATEGORIES = [
   {
     name: 'beauty',
     icon: MdOutlineFace,
-    types: [
+    subCategories: [
       { 
-        type: 'Skincare', 
+        name: 'Skincare', 
         brands: ['Cetaphil', 'Neutrogena', 'Olay', "L'Oréal", 'Clinique', 'The Ordinary', 'CeraVe', 'Aveeno'] 
       },
       { 
-        type: 'Makeup', 
+        name: 'Makeup', 
         brands: ['MAC', 'Sephora', 'Urban Decay', 'Too Faced', 'NARS', 'Charlotte Tilbury', 'Fenty Beauty', 'Rare Beauty'] 
       },
       { 
-        type: 'Personal Care', 
+        name: 'Personal Care', 
         brands: ['Johnson & Johnson', 'P&G', 'Unilever', 'Colgate', 'Oral-B', 'Gillette', 'Dove', 'Nivea'] 
       },
     ],

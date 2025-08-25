@@ -46,9 +46,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
                 <p className={`font-semibold ${sidebarOpen ? '' : 'hidden'}`}>Navigation</p>
               </div>
               <div className="mt-6 px-3  flex flex-col gap-3">
-                {SidebarItems.map((item) => (
+                {SidebarItems(userType).map((item) => (
                   <Link
-                    href={`/${userType}/${item.name}`}
+                    href={`${userType === 'seller' ? `/${userType}/${item.name}` : `/dashboard/${item.name}`}`}
                     key={item.label}
                     onClick={() => setActiveTab(item.name)}
                     className={`flex items-center ${sidebarOpen ? '' : 'justify-center'} gap-3 p-3 cursor-pointer text-left rounded-lg transition-colors ${activeTab === item.name ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg' : 'text-gray-700 hover:bg-gray-100'}`}
